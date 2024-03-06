@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SearchBar.css';
+import styles from './SearchBar.module.scss';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -19,13 +19,15 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="searchbar" onSubmit={handleSearchSubmit}>
+    <form className={styles.searchbar} onSubmit={handleSearchSubmit}>
       <input
-        className='searchbar__inputbox'
+        className={styles.searchbar__inputbox}
         value={searchQuery}
         onChange={handleSearchChange}
+        placeholder="Nunca dejes de buscar"
       ></input>
-      <button type="submit">Search</button>
+      <button type="submit" className={styles.searchbar__button}>
+      </button>
     </form>
   );
 };

@@ -4,7 +4,7 @@ import StandardLayout from "./layouts/StandardLayout";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
-import './App.css';
+import './App.scss';
 
 
 const queryClient = new QueryClient();

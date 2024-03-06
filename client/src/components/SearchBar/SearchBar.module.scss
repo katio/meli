@@ -1,0 +1,68 @@
+// SearchBar.module.scss
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.searchbar {
+  @include center-flex;
+  background-color: $color-yellow;
+  padding: 10px 20px;
+  border-radius: 3px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // logo de Mercado Libre a la izquierda
+  &:before {
+    content: '';
+    background-image: url('../../../public/assets/images/Logo_ML.png');
+    background-size: contain;
+    display: block;
+    width: 53px;
+    height: 36px;
+    margin-right: 10px;
+  }
+
+  &__inputbox {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid $color-gray-light;
+    border-radius: 2px;
+    margin-right: 10px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-gray;
+    }
+  }
+
+  button {
+    background-color: $color-gray-light;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+
+    // la lupa
+    &:after {
+      content: '';
+      background-image: url('../../../public/assets/images/ic_Search.png');
+      background-size: contain;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    // lupa en pantallas retina
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      &:after {
+        background-image: url('../../../public/assets/images/ic_Search@2x.png');
+      }
+    }
+
+    &:hover {
+      background-color: darken($color-gray-dark, 10%);
+    }
+  }
+}
