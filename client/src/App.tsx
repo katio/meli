@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import StandardLayout from "./layouts/StandardLayout";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<StandardLayout MainContent={<SearchResultsPage />} />}
+          />
+          <Route
+            path="/items"
+            element={<StandardLayout MainContent={<SearchResultsPage />} />}
+          />
+          <Route
+            path="/items/:id"
+            element={<StandardLayout MainContent={<ItemDetailPage />} />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
