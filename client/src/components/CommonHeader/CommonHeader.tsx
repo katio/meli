@@ -1,11 +1,12 @@
 import React from 'react';
 import './CommonHeader.css';
+import SearchBar from '../SearchBar/SearchBar';
 
 const CommonHeader = () => {
 
   return (
     <div className="header">
-      CommonHeader
+      <SearchBar/>
     </div>
   );
 };
