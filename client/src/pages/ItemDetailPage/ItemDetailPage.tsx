@@ -5,7 +5,7 @@ import fetchItemDetails from '../../services/fetchItemDetails';
 import styles from './ItemDetailPage.module.scss';
 
 const ItemDetailPage = () => {
-  const { id = ''} = useParams();
+  const { id = '' } = useParams<{ id: string }>();
   const { isLoading, error, data } = useQuery(['itemDetails', id], () => fetchItemDetails(id), {
     enabled: !!id,
   });
@@ -15,14 +15,20 @@ const ItemDetailPage = () => {
 
   return (
     <div className={styles.itemDetailPage}>
-      <div className={styles.itemDetail}>
-        <img src={data.item.picture} alt={data.item.title} className={styles.itemImage} />
-        <div className={styles.itemInfo}>
-          <h1 className={styles.itemTitle}>{data.item.title}</h1>
-          <div className={styles.itemPrice}>${data.item.price.amount.toLocaleString()}</div>
-          {data.item.free_shipping && <div className={styles.freeShipping}>Envío Gratis</div>}
-          <p className={styles.itemDescription}>{data.item.description}</p>
+      <div className={styles.itemDetailContainer}>
+        <div className={styles.itemImageContainer}>
+          <img src={data?.item?.picture} alt={data?.item?.title} className={styles.itemImage} />
         </div>
+        <div className={styles.itemInfoContainer}>
+          <span className={styles.itemConditionNew}>Nuevo - {data?.item?.sold_quantity} vendidos</span>
+          <h1 className={styles.itemTitle}>{data?.item?.title}</h1>
+          <div className={styles.itemPrice}>${data?.item?.price?.amount.toLocaleString()}</div>
+          <button className={styles.buyButton}>Comprar</button>
+        </div>
+      </div>
+      <div className={styles.itemDescriptionContainer}>
+        <h2 className={styles.descriptionTitle}>Descripción del Producto</h2>
+        <p className={styles.itemDescription}>{data?.item?.description}</p>
       </div>
     </div>
   );

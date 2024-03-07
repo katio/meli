@@ -8,46 +8,62 @@
   padding: 16px;
 }
 
-.itemDetail {
-  background-color: $color-white;
-  border: 1px solid $color-gray-lighter;
-  border-radius: 4px;
-  width: 100%;
+.itemDetailContainer {
+  display: grid;
+  grid-template-columns: 680px auto;
+  column-gap: 24px;
+  align-items: start;
+  margin-bottom: 64px;
+  width: 80%;
+}
+
+.itemImageContainer {
   max-width: 680px;
+  img {
+    max-width: 680px;
+    height: auto;
+    border-radius: 4px;
+  }
 }
 
-.itemImage {
-  width: 100%;
-  object-fit: cover;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.itemInfo {
-  padding: 16px;
-  text-align: left;
+.itemInfoContainer {
+  .itemConditionNew {
+    font-size: $font-size-sm;
+    margin-top: 14px;
+  }
 
   .itemTitle {
-    font-size: 24px;
-    color: $color-gray-dark;
-    margin-bottom: 8px;
+    font-size: $font-size-lg;
+    margin-top: 14px;
   }
 
   .itemPrice {
-    font-size: $font-size-lg;
-    color: $color-gray;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: $font-size-hg;
+    margin-top: 32px;
   }
 
-  .freeShipping {
-    color: $color-green;
-    font-size: $font-size-sm;
-    margin-bottom: 16px;
+  .buyButton {
+    background-color: #3483FA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $font-size-xs;
+    margin-top: 32px;
+    width: 234px;
+  }
+}
+
+.itemDescriptionContainer {
+  width: 80%;
+  .descriptionTitle {
+    font-size: $font-size-lx;
+    margin-top: 64px;
   }
 
   .itemDescription {
-    font-size: $font-size-sm;
-    color: $color-gray;
+    font-size: $font-size-mm;
+    margin-top: 32px;
   }
 }
