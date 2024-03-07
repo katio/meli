@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from "react-query";
 import fetchSearchResults from '../../services/fetchSearchResults';
 import styles from './SearchResultsPage.module.scss';
@@ -8,13 +8,17 @@ import styles from './SearchResultsPage.module.scss';
 const useQuerySearch = () => new URLSearchParams(useLocation().search);
 
 const SearchResultsPage = () => {
-
+  const navigate = useNavigate();
   const query = useQuerySearch();
   const searchQuery = query.get('search') || '';
 
   const { isLoading, error, data } = useQuery(['searchResults', searchQuery], () => fetchSearchResults(searchQuery), {
     enabled: !!searchQuery,
   });
+
+  const handleClick = (id: string) => {
+    navigate(`/items/${id}`);
+  };
 
   if (isLoading) return <div>Loading results...</div>;
 
@@ -23,7 +27,7 @@ const SearchResultsPage = () => {
   return (
     <div className={styles.searchResultsPage}>
       {data?.items.map((item: any) => (
-        <div key={item.id} className={styles.itemCard}>
+        <div key={item.id} className={styles.itemCard} onClick={() => handleClick(item.id)}>
           <div className={styles.itemImageContainer}>
             <img src={item.picture} alt={item.title} className={styles.itemImage} />
           </div>

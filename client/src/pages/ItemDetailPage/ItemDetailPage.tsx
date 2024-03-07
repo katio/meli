@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from "react-query";
 import fetchItemDetails from '../../services/fetchItemDetails';
 
-import './ItemDetailPage.css';
+import './ItemDetailPage.scss';
 
 const ItemDetailPage = () => {
   const { id } = useParams<{id: string}>();
