@@ -28,7 +28,7 @@ const SearchResultsPage = () => {
   return (
     <div className={styles.searchResultsPage}>
       <Breadcrumbs list={breadcrumpsList} />
-      {data?.items.map((item: any) => (
+      {data?.items.map((item: any) => ( // TODO: remove any
         <div key={item.id} className={styles.itemCard} onClick={() => handleClick(item.id)}>
           <div className={styles.itemImageContainer}>
             <img src={item.picture} alt={item.title} className={styles.itemImage} />
