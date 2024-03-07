@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from "react-query";
 import fetchSearchResults from '../../services/fetchSearchResults';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import styles from './SearchResultsPage.module.scss';
 
 
@@ -26,6 +27,7 @@ const SearchResultsPage = () => {
 
   return (
     <div className={styles.searchResultsPage}>
+      <Breadcrumbs list={['a', 'b']} />
       {data?.items.map((item: any) => (
         <div key={item.id} className={styles.itemCard} onClick={() => handleClick(item.id)}>
           <div className={styles.itemImageContainer}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import CommonHeader from '../components/CommonHeader/CommonHeader';
 import SearchResultsPage from '../pages/SearchResultsPage/SearchResultsPage';
-import './StandardLayout.css';
+import './StandardLayout.scss';
 
 type StandardLayoutProps = {
   HeaderContent?: React.ReactNode;
