@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 16px;
+  background-color: $color-gray-lighter;
 }
 
 .itemDetailContainer {
@@ -13,8 +14,9 @@
   grid-template-columns: 680px auto;
   column-gap: 24px;
   align-items: start;
-  margin-bottom: 64px;
-  width: 80%;
+  width: 80vw;
+  padding: 10px;
+  background-color: $color-white;
 }
 
 .itemImageContainer {
@@ -56,10 +58,11 @@
 }
 
 .itemDescriptionContainer {
-  width: 80%;
+  width: 80vw;
+  padding: 10px;
+  background-color: $color-white;
   .descriptionTitle {
     font-size: $font-size-lx;
-    margin-top: 64px;
   }
 
   .itemDescription {

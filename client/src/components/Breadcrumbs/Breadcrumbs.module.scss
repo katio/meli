@@ -1,6 +1,7 @@
 @import '../../styles/abstracts/variables';
 @import '../../styles/abstracts/mixins';
 
-.breadcrumps {
+.breadcrumbs {
   color: $color-gray-dark;
+  margin-bottom: 16px;
 }

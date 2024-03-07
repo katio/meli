@@ -16,18 +16,18 @@ const SearchResultsPage = () => {
   const { isLoading, error, data } = useQuery(['searchResults', searchQuery], () => fetchSearchResults(searchQuery), {
     enabled: !!searchQuery,
   });
-
+  const breadcrumpsList = (data?.categories || []).slice(0,3);
   const handleClick = (id: string) => {
     navigate(`/items/${id}`);
   };
 
-  if (isLoading) return <div>Loading results...</div>;
+  if (isLoading) return <div>Cargando resultados...</div>;
 
-  if (error) return <div>Error loading the results</div>;
+  if (error) return <div>Error cargando resultados</div>;
 
   return (
     <div className={styles.searchResultsPage}>
-      <Breadcrumbs list={['a', 'b']} />
+      <Breadcrumbs list={breadcrumpsList} />
       {data?.items.map((item: any) => (
         <div key={item.id} className={styles.itemCard} onClick={() => handleClick(item.id)}>
           <div className={styles.itemImageContainer}>

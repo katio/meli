@@ -9,7 +9,7 @@ const Breadcrumbs = ({list = []}: BreadcrumbsProps) => {
 
 
   return (
-    <span className={styles.breadcrumps}>
+    <span className={styles.breadcrumbs}>
       {list.join(' > ')}
     </span>
   );
